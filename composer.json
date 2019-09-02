@@ -1,5 +1,5 @@
 {
-    "name": "spatie/laravel-blade-javascript",
+    "name": "zdrojowa/laravel-blade-javascript",
     "description": "A Blade directive to export variables to JavaScript",
     "keywords": [
         "spatie",
