@@ -19,19 +19,8 @@ class BladeJavaScriptServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'bladeJavaScript');
 
         $this->app['blade.compiler']->directive('javascript', function ($expression) {
-            $expression = $this->makeBackwardsCompatible($expression);
-
-            return "<?= app('\Spatie\BladeJavaScript\Renderer')->render{$expression}; ?>";
+            return "<?= app('\Spatie\BladeJavaScript\Renderer')->render({$expression}); ?>";
         });
-    }
-
-    public function makeBackwardsCompatible($expression)
-    {
-        if (starts_with(app()->version(), ['5.1', '5.2'])) {
-            return $expression;
-        }
-
-        return "({$expression})";
     }
 
     public function register()
